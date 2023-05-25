@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+int main22(){
 
 	srand(time(0));
 
