@@ -11,11 +11,20 @@ int main1(){
 	char grade = 'A'; 			// character
 	std::cout << grade << std::endl;
 
-	bool student = true; 		// boolean
+	bool student = true; 			// boolean
 	std::cout << student << std::endl;
 
-	std::string name = "Bob";	// string
+	std::string name = "Bob";		// string
 	std::cout << name << std::endl;
+	
+	int32_t number = 2;
+	std::cout << number << std::endl;
+
+	int64_t num1  = 23;
+	std::cout << num1 << std::endl;
+
+	uint64_t num2 = 15;
+	std::cout << num2 << std::endl;
 
 	return 0;
 }
