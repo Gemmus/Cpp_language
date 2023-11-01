@@ -31,7 +31,7 @@ int main() {
     int counter = 0;
     bool guessed = false;
 
-    cout << comp_num << endl;
+    // cout << "Comp_num = " << comp_num << endl;
     while (!guessed) {
 
         cout << "Guess a number (" << min_value << " - " << max_value << "): ";
