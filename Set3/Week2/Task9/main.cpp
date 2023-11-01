@@ -20,7 +20,7 @@ int main() {
    int *largestPtr = find_largest(number_array, array_length);
 
    if (largestPtr == NULL) {
-       cout << "Invalid input or array is empty." << endl;
+       cout << "Invalid input." << endl;
    } else {
        cout << "The largest number of the array is: " << *largestPtr << endl;
    }
@@ -30,7 +30,7 @@ int main() {
 
 int *find_largest(const int *table, int table_len) {
 
-    if(table == NULL || table_len == 0) {
+    if(table == NULL || table_len <= 0) {
         return NULL;
     }
 
@@ -43,4 +43,3 @@ int *find_largest(const int *table, int table_len) {
     }
     return (int *)largest;
 }
-
