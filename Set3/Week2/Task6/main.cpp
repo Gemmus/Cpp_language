@@ -10,7 +10,6 @@ how much space (how many bytes) the following types of variables take up in memo
 */
 
 #include <iostream>
-#include <ctime>
 
 using namespace std;
 
