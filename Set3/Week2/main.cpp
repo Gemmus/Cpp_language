@@ -347,7 +347,7 @@ int *find_largest(const int *table, int table_len) {
         return nullptr;
     }
 
-    const int *largest = table;
+    int *largest = table;
 
     for(int i = 1; i < table_len; i++) {
         if (*largest < table[i]) {
