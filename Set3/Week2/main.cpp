@@ -3,9 +3,9 @@
 
 #define MAX_INT 2147483647
 
-/////////////////////// JARKKO /////////////////////
-#define TASK1 // Define selected task (TASK1-TASK10)
-////////////////////////////////////////////////////
+////////////////////// JARKKO /////////////////////
+#define TASK1 // Define selected task (TASK1-TASK9)
+///////////////////////////////////////////////////
 
 using namespace std;
 
@@ -194,9 +194,9 @@ int main() {
    cout << "The address of y in memory: " << &y << endl;
 
    cout << "The value of x: " << x << endl;
-   cout << "The value of y: " << *y << endl;
+   cout << "The value of y: " << y << endl;
 
-   cout << "Where y points to: " << y << endl;
+   cout << "Dereferencing y: " << *y << endl;
 
 #endif
 
@@ -240,103 +240,24 @@ int main() {
                     ////////////////////////////////////////////
                     //               TASK 10                  //
                     ////////////////////////////////////////////
-#ifdef TASK10
-
-    int counter = 1;
-
-    // 1: 15
-    int x = 15;
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 2: 15
-    int *y;
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 3: 15
-    y = &x; // y pointing to x memory address; *y = 15
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 4: 18
-    *y = *y + 3; // *y = 15 + 3
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 5: 18
-    int z = 2;
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 6: 18
-    int *w;
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 7: 18
-    w = y; // w points to x; *w = 18
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 8: 18
-    y = 0;
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 9: 18
-    y = &z; // y points to z memory address, *y = 2
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 10: 20
-    *w = *w + *y;  // *w = 18 + 2
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 11: 20
-    int t[] = {9, 10};
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 12: 20
-    y = t; // *y = 9
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 13: 29
-    *w += *y; // *w = 20 + 9
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 14: 29
-    y++; // *y = 10
-    cout << counter << ": " << x << endl;
-    counter++;
-
-    // 15: 39
-    *w += *y;  // *w = 29 + 10
-    cout << counter << ": " << x << endl;
 
     /* TASK10 as comment:
      * 1.   15
      * 2.   15
-     * 3.   15
-     * 4.   18
+     * 3.   15   // y pointing to x memory address; *y = 15
+     * 4.   18   // *y = 15 + 3
      * 5.   18
      * 6.   18
-     * 7.   18
+     * 7.   18   // w points to x; *w = 18
      * 8.   18
-     * 9.   18
-     * 10.  20
+     * 9.   18   // y points to z memory address, *y = 2
+     * 10.  20   // *w = 18 + 2
      * 11.  20
-     * 12.  20
-     * 13.  29
+     * 12.  20   // *y = 9
+     * 13.  29   // *w = 20 + 9
      * 14.  29
-     * 15.  39
+     * 15.  39   // *w = 29 + 10
      */
-
-#endif
 
    return 0;
 }
