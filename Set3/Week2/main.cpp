@@ -242,20 +242,20 @@ int main() {
                     ////////////////////////////////////////////
 
     /* TASK10 as comment:
-     * 1.   15
-     * 2.   15
+     * 1.   15   // ordinary variable
+     * 2.   15   // pointer variable
      * 3.   15   // y pointing to x memory address; *y = 15
      * 4.   18   // *y = 15 + 3
-     * 5.   18
-     * 6.   18
+     * 5.   18   // ordinary variable
+     * 6.   18   // pointer variable
      * 7.   18   // w points to x; *w = 18
-     * 8.   18
+     * 8.   18   // y does not point to anything
      * 9.   18   // y points to z memory address, *y = 2
      * 10.  20   // *w = 18 + 2
-     * 11.  20
+     * 11.  20   // array of two
      * 12.  20   // *y = 9
      * 13.  29   // *w = 20 + 9
-     * 14.  29
+     * 14.  29   // *y = 10
      * 15.  39   // *w = 29 + 10
      */
 
