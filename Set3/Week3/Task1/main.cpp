@@ -1,3 +1,9 @@
+/*
+Write a function:
+int *allocate_table(int n);
+which reserves an integer array of the given size (n). Function returns a pointer to the beginning of the table.
+*/
+
 #include <iostream>
 
 using namespace std;
