@@ -22,6 +22,8 @@ int main() {
     for(int i = 0; i < n; i++) {
         cout << task2_array[i] << " ";
     }
+
+    return 0;
 }
 
 void read_values(int *t, int n) {
