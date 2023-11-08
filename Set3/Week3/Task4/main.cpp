@@ -23,6 +23,7 @@ int main() {
 }
 
 void print_values(const int *t, int n) {
+    
     for (int i = 0; i < n; i++) {
         cout << *t << " ";
         t++;
