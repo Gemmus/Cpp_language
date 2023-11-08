@@ -18,7 +18,7 @@ int main() {
     int task2_array[n];
     read_values(task2_array, n);
 
-    cout << "Entered array of integers: ";
+    cout << "Entered array of " << n << " integers: ";
     for(int i = 0; i < n; i++) {
         cout << task2_array[i] << " ";
     }
