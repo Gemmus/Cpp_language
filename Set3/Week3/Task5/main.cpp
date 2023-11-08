@@ -15,7 +15,7 @@ void print_values(const int *t, int n);
 
 int main() {
 
-    int array_size = 0;
+    int array_size;
 
     cout << "Enter the number of array elements: ";
     cin >> array_size;
