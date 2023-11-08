@@ -27,6 +27,7 @@ int main() {
         reverse(array_ptr, array_size);
         cout << "The array of " << array_size << " integers printed out reversed: " << endl;
         print_values(array_ptr, array_size);
+        delete array_ptr;
     } else {
         cout << "The array initiation was unsuccessful." << endl;
     }
@@ -71,7 +72,7 @@ void reverse(int *t, int n) {
 }
 
 void print_values(const int *t, int n) {
-    
+
     for (int i = 0; i < n; i++) {
         cout << *t << " ";
         t++;
