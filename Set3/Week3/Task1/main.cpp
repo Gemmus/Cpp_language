@@ -25,7 +25,9 @@ int main() {
         cout << "The array initiation was unsuccessful." << endl;
     }
 
-   return 0;
+    delete array_ptr;
+
+    return 0;
 }
 
 int *allocate_table(int n) {
@@ -39,4 +41,3 @@ int *allocate_table(int n) {
 
     return &array[0];
 }
-
