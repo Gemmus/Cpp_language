@@ -28,6 +28,7 @@ int main() {
     Node *s1 = new Node;
     s1->data = 3; s1->next = s2;
     Node *head = s1;
+    
     print_list(head);
 
     return 0;
