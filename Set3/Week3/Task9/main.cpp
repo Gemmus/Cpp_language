@@ -58,10 +58,12 @@ Node *insert_first(Node *head, int value) {
 }
 
 void delete_list(Node *head) {
+    cout << "Being deleted: " << endl;
     while (head != nullptr) {
         Node *ptr = head->next;
-        cout << "Being deleted: " << head->data << endl;
+        cout << head->data << " ";
         delete head;
         head = ptr;
     }
+    cout << endl;
 }
