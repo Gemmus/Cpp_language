@@ -16,6 +16,7 @@ int main() {
     int task4_array[] = {23, 24, 25, 26, 27, 28, 29, 30, 31, 32};
     int task4_arr_size = sizeof(task4_array) / sizeof(task4_array[0]);
 
+    cout << "Printing array with a function: " << endl;
     print_values(task4_array, task4_arr_size);
 
     return 0;
