@@ -1,6 +1,16 @@
+/*
+Modify the class definition so that dynamic character array is used to store characters of the string. 
+To avoid memory leaks in this case, add the destructor function to the class. 
+To better understand how the program works make your destructor to display a message, for example, “destructor done”. 
+Then you can easily follow when and how many times destructor is executed.
+ 
+Don’t modify the main function. Run the program with the new version of the class String.
+You are going to see, that this program will crash, or it displays wrong results. 
+Try to find the correct explanation why it does not work. There are two ways to fix this problem (see phase 3 and phase 4).
+*/
 
 #include <iostream>
-#include <cstring>
+#include <string.h>
 
 using namespace std;
 
@@ -9,44 +19,23 @@ class String{
 public:
 
     String(const char* string) {
-#if 0
-        uint32_t length = strlen(string);
-        if (length > 10) {
-            length = 10;
-        }
-        strncpy(c_string, string, length);
-        c_string[length] = '\0';
-#else
-        c_string = new char[strlen(string)+1];
-//        cout << &c_string << endl;
-        strncpy(c_string, string, strlen(string));
-#endif
+        c_string = new char[strlen(string) + 1];
+        strcpy(c_string, string);
     }
 
-#if 1
     ~String() {
         delete c_string;
         cout << "destructor done" << endl;
     }
-#endif
+
     void list() {
-#if 0
-        for (int i = 0; c_string[i] != '\0'; i++) {
-            cout << c_string[i];
-        }
-        cout << endl;
-#else
-        cout << &c_string << endl;
         cout << c_string << endl;
-#endif
     }
 
 private:
-#if 0
-    char c_string[11];
-#else
+
     char *c_string;
-#endif
+
 };
 
 void f(String s);
