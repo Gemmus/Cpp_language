@@ -29,6 +29,7 @@ Examine the outputs from the program and note that all of them are correct.
 
 #include <iostream>
 #include <cstring>
+#include <string.h>
 
 using namespace std;
 
@@ -37,25 +38,17 @@ class String{
 public:
 
     String(const char* string) {
-        uint32_t length = strlen(string);
-        if (length > 10) {
-            length = 10;
-        }
-        strncpy(c_string, string, length);
-        c_string[length] = '\0';
+        strcpy(c_string, string);
     }
 
     void list() {
-        for (int i = 0; c_string[i] != '\0'; i++) {
-            cout << c_string[i];
-        }
-        cout << endl;
+        cout << c_string << endl;
     }
 
 private:
-    
+
     char c_string[11];
-    
+
 };
 
 void f(String s);
