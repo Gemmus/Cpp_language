@@ -28,7 +28,6 @@ Examine the outputs from the program and note that all of them are correct.
 */
 
 #include <iostream>
-#include <cstring>
 #include <string.h>
 
 using namespace std;
