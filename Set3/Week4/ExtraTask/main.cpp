@@ -81,6 +81,7 @@ int main() {
      By removing the destructor, the programme leaks 27 bytes per each "abcdefghijklmnopqrstuvwxyz" instances (3 times 27 bytes overall). 
      16 bytes originates from the string as 1 character equals 1 byte typically in C++. The additional 9 bytes are related to the activity of 
      memory allocation, such as memory management bookkeeping.
+     
      Example output:
      0 bytes in 0 Free Blocks.
      27 bytes in 1 Normal Blocks.
@@ -118,6 +119,7 @@ int main() {
      Destructor frees the memory blocks that were allocated dynamically, thus preventing possible memory leakages. I didn't create a special 
      destructor, only restored the original one from the previous task. Tested it multiple times, however, _CrtDumpMemoryLeaks() did not report 
      memory leakage in any of the cases. 
+     
      Example output: 
      0 bytes in 0 Free Blocks.
      0 bytes in 0 Normal Blocks.
