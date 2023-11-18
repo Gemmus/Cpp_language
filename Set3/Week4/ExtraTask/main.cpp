@@ -34,7 +34,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     String(const String& s) {
@@ -78,68 +77,24 @@ int main() {
 /* _____________________________________________________________________________________________________________________________________________ 
      How many bytes is that fixed amount? Why the amount of bytes is that? 
    ---------------------------------------------------------------------------------------------------------------------------------------------  
-     By removing the destructor, the programme leaks 27 bytes per each "abcdefghijklmnopqrstuvwxyz" instances (3 times 27 bytes overall). 
-     16 bytes originates from the string as 1 character equals 1 byte typically in C++. The additional 9 bytes are related to the activity of 
+     By removing the destructor, the programme leaks 27 bytes per each "abcdefghijklmnopqrstuvwxyz" instances (3 times 27 bytes overall).
+     16 bytes originates from the string as 1 character equals 1 byte typically in C++. The additional 9 bytes are related to the activity of
      memory allocation, such as memory management bookkeeping.
-     
+
      Example output:
-     0 bytes in 0 Free Blocks.
-     27 bytes in 1 Normal Blocks.
-     22767 bytes in 106 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22794 bytes.
-     Total allocations: 49208 bytes.
-     0 bytes in 0 Free Blocks.
-     54 bytes in 2 Normal Blocks.
-     22767 bytes in 106 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22821 bytes.
-     Total allocations: 49235 bytes.
-     0 bytes in 0 Free Blocks.
-     81 bytes in 3 Normal Blocks.
-     22767 bytes in 106 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22848 bytes.
-     Total allocations: 49262 bytes.
+     ---------------
      Detected memory leaks!
      Dumping objects ->
      {159} normal block at 0x00000153B657CBD0, 27 bytes long.
-     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70 
+     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70
      {158} normal block at 0x00000153B657D470, 27 bytes long.
-     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70 
+     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70
      {156} normal block at 0x00000153B657C930, 27 bytes long.
-     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70 
+     Data: <abcdefghijklmnop> 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70
      Object dump complete.
-   ____________________________________________________________________________________________________________________________________________ 
+   ____________________________________________________________________________________________________________________________________________
      Why the destructor solves the memory leak problem? Why in this case you need to write a special destructor?
-   ---------------------------------------------------------------------------------------------------------------------------------------------    
-     Destructor frees the memory blocks that were allocated dynamically, thus preventing possible memory leakages. I didn't create a special 
-     destructor, only restored the original one from the previous task. Tested it multiple times, however, _CrtDumpMemoryLeaks() did not report 
-     memory leakage in any of the cases. 
-     
-     Example output: 
-     0 bytes in 0 Free Blocks.
-     0 bytes in 0 Normal Blocks.
-     22821 bytes in 108 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22848 bytes.
-     Total allocations: 49300 bytes.
-     0 bytes in 0 Free Blocks.
-     0 bytes in 0 Normal Blocks.
-     22821 bytes in 108 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22848 bytes.
-     Total allocations: 49327 bytes.
-     0 bytes in 0 Free Blocks.
-     0 bytes in 0 Normal Blocks.
-     22821 bytes in 108 CRT Blocks.
-     0 bytes in 0 Ignore Blocks.
-     0 bytes in 0 Client Blocks.
-     Largest number used: 22848 bytes.
-     Total allocations: 49354 bytes.
+   ---------------------------------------------------------------------------------------------------------------------------------------------
+     Destructor frees the memory blocks that were allocated dynamically, thus preventing possible memory leakages. A special destructor needs to
+     be implemeted if dynamic memory allocation is used.
    _____________________________________________________________________________________________________________________________________________ */
