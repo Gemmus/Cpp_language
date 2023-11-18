@@ -17,7 +17,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     String(const String &s) {
@@ -61,10 +60,11 @@ void f(String s) {
    ---------------------------------------------------------------------------------------------------------------------------------------------
      abcdefg
      abcdefg
+     destructor done
      abcdefg
      destructor done
    _____________________________________________________________________________________________________________________________________________
      Explanation:
    ---------------------------------------------------------------------------------------------------------------------------------------------
-     Copy constructor is making a copy of the original object.
+     Copy constructor is making a copy of the original object dynamically and only the copy is destroyer at the end of the function call.
    _____________________________________________________________________________________________________________________________________________ */
