@@ -134,7 +134,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     ~String() {
@@ -195,7 +194,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     String(const String &s) {
@@ -261,7 +259,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     String(const String& s) {
