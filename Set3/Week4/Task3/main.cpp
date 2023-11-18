@@ -15,7 +15,6 @@ public:
     String(const char* string) {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
-
     }
 
     ~String() {
@@ -59,5 +58,5 @@ void f(String &s) {
    _____________________________________________________________________________________________________________________________________________ 
      Explanation:
    ---------------------------------------------------------------------------------------------------------------------------------------------    
-     Because now it is referring to the memory address and no new copy is created by function f().
+     Because now it is referring to the memory address which is not destroyed after the function call.
    _____________________________________________________________________________________________________________________________________________ */
