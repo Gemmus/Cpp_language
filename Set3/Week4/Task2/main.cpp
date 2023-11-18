@@ -65,5 +65,7 @@ void f(String s) {
    _____________________________________________________________________________________________________________________________________________ 
      Explanation:
    ---------------------------------------------------------------------------------------------------------------------------------------------    
-     Because the function is creating a copy of the parameter "String s", which appears as a new, second object to the first, original one.
+     Because in the class there is no special copy constructor that would create a dynamic copy of the value parameter. After the function, the 
+     destructor is called that destroys the original content where it was pointed to, thus the programme is printing garbage and then tries to 
+     release the same memory for the second time which leads to the crash of the programme.
    _____________________________________________________________________________________________________________________________________________ */
