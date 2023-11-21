@@ -21,7 +21,7 @@ class String{
 
 public:
 
-    String(const char* string) {
+    String(const char* string="") {
         strcpy(c_string, string);
     }
 
@@ -70,7 +70,7 @@ class String{
 
 public:
 
-    String(const char* string) {
+    String(const char* string="") {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
     }
@@ -133,7 +133,7 @@ class String{
 
 public:
 
-    String(const char* string) {
+    String(const char* string="") {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
     }
@@ -193,7 +193,7 @@ class String {
 
 public:
 
-    String(const char* string) {
+    String(const char* string="") {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
     }
@@ -259,7 +259,7 @@ class String {
 
 public:
 
-    String(const char* string) {
+    String(const char* string="") {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
     }
