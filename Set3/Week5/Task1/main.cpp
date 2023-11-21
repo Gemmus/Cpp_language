@@ -33,16 +33,23 @@ public:
     }
 
     ~String() {
-        cout << c_string << " to be destroyed -->" ;
+        cout << "('" << c_string << "' to be destroyed -->" ;
         delete c_string;
-        cout << " done" << endl;
+        cout << " done)" << endl;
         //cout << "destructor done" << endl;
     }
-/*
-    const String& operator=(const String& right) const{
 
+    const String& operator=(const String& right){
+        if (this != &right) {
+            delete c_string;
+
+            c_string = new char[strlen(right.c_string) + 1];
+            strcpy(c_string, right.c_string);
+        }
+
+        return *this;
     }
-*/
+
     friend ostream& operator<<(ostream& output, const String& s) {
         output << "" << s.c_string << "";
         return output;
@@ -79,8 +86,8 @@ int main() {
     cout << "Sum is: " << sum << endl; // output should be: abcdefghijklmn
 
     // This should also work
-    //sum = sum;
-    //cout << "Sum is still: " << sum << endl;; // output should still be: abcdefghijklmn
+    sum = sum;
+    cout << "Sum is still: " << sum << endl; // output should still be: abcdefghijklmn
 
     return 0;
 }
