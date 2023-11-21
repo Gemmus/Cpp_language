@@ -11,7 +11,7 @@ Write the following operators to the class:
   Remember that it is not allowed to modify the operands of the +-operator.
 */
 
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
 #include <string.h>
@@ -41,6 +41,8 @@ public:
 
     const String& operator=(const String& right){
         if (this != &right) {
+            delete c_string;
+            c_string = new char[strlen(right.c_string) + 1];
             strcpy(c_string, right.c_string);
         }
         return *this;
