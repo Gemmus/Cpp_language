@@ -53,7 +53,7 @@ public:
         return output;
     }
 
-    String operator+(const String& s2) const{
+   const String operator+(const String& s2) const{
         char* temp;
         temp = new char[strlen(c_string) + strlen(s2.c_string) + 1];
 
