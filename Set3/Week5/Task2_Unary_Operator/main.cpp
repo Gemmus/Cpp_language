@@ -100,7 +100,6 @@ public:
         }
     }
 
-
 private:
 
     char* c_string;
