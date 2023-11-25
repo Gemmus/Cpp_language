@@ -144,6 +144,7 @@ int main() {
     String s_b2("abcdefg");
     for (int i = 0; i < 7; i++)
         cout << s_b2[i] << " ";
+    cout << endl;
     s_b2[4] = 'X';
     for (int i = 0; i < 7; i++)
         cout << s_b2[i] << " ";
