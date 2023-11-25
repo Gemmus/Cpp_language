@@ -1,10 +1,8 @@
 /*                             B) Unary operators
-
                   B1) (Post increment and pre-increment operators)
 Write pre-increment and post-increment operators for the class String. Both of the operators
 append only one X-character at the end of the string object (so that it is easy to see in the
 output).
-
                   B2) (Indexing operator)
 Write an indexing operator for the class String that can be used to access individual
 characters of the String object.
@@ -13,15 +11,9 @@ characters of the String object.
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string.h>
-/*
-#ifdef _DEBUG
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-#endif
-*/
 
 /////////////////////////// JARKKO ///////////////////////////
-#define TASKB2 // Define selected task (TASKA, TASKB1, TASKB2)
+#define TASKB1 // Define selected task (TASKA, TASKB1, TASKB2)
 //////////////////////////////////////////////////////////////
 
 using namespace std;
@@ -30,7 +22,7 @@ class String {
 
 public:
 
-    String(const char* string="") {
+    String(const char* string = "") {
         c_string = new char[strlen(string) + 1];
         strcpy(c_string, string);
     }
@@ -41,7 +33,7 @@ public:
     }
 
     ~String() {
-        cout << "('" << c_string << "' to be destroyed -->" ;
+        cout << "('" << c_string << "' to be destroyed -->";
         delete c_string;
         cout << " done)" << endl;
         //cout << "destructor done" << endl;
@@ -79,12 +71,20 @@ public:
      **************************/
     String operator++(int) {
         String old(*this);
-        strcat(c_string, "X");
+        char* temp = new char[strlen(c_string + 2)];
+        strcpy(temp, c_string);
+        delete c_string;
+        strcat(temp, "X");
+        c_string = temp;
         return old;
     }
 
     String& operator++() {
-        strcat(c_string, "X");
+        char* temp = new char[strlen(c_string + 2)];
+        strcpy(temp, c_string);
+        delete c_string;
+        strcat(temp, "X");
+        c_string = temp;
         return *this;
     }
 
@@ -94,10 +94,12 @@ public:
     char& operator[](int index) const {
         if (index >= 0 && index < strlen(c_string)) {
             return c_string[index];
-        } else {
+        }
+        else {
             return c_string[0];
         }
     }
+
 
 private:
 
@@ -133,7 +135,7 @@ int main() {
 #ifdef TASKB1
     String s_b1("abcdefg");
     cout << "Printing s++: " << s_b1++ << endl;
-    cout << "After s++, the value of S: " << s_b1 << endl;
+    cout << "After s++, the value of s is: " << s_b1 << endl;
     cout << "Now printing ++s: " << ++s_b1 << endl;
 #endif
 
