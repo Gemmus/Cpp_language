@@ -1,4 +1,4 @@
-/*
+/*                              A) Binary operators
 Continue to develop the class String from the exercise 3 further in the following way (use
 the version from the phase 4, where dynamic array was used and destructor and copy
 constructor were implemented in correct way).
