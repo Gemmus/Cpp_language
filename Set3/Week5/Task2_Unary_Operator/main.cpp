@@ -47,7 +47,7 @@ public:
         return output;
     }
 
-    const String operator+(const String& s2) const {
+    String operator+(const String& s2) const {
         char* temp;
         temp = new char[strlen(c_string) + strlen(s2.c_string) + 1];
 
@@ -57,7 +57,7 @@ public:
         return temp;
     }
 
-    const String& operator=(const String& right) {
+    String& operator=(const String& right) {
         if (this != &right) {
             delete c_string;
             c_string = new char[strlen(right.c_string) + 1];
