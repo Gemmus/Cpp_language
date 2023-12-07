@@ -43,20 +43,25 @@ int main() {
 
     cout << "Location: " << location << endl;
     cout << "Temperature: " << temperature << endl;
+
+    return 0;
 }
 
 string find_field(const string& xml, const string& tag) {
 
-    int start_pos, end_pos;
-    string start_tag, end_tag, retval;
+    size_t start_pos, end_pos;
+    string start_tag, end_tag;
 
-    start_tag = "<"; start_tag.append(tag); start_tag.append(">");
-    end_tag = "</"; end_tag.append(tag); end_tag.append(">");
+    start_tag = "<" + tag + ">";
+    end_tag = "</" + tag + ">";
 
-    start_pos = xml.find(start_tag) + start_tag.length();
+    start_pos = xml.find(start_tag);
     end_pos = xml.find(end_tag);
 
-    retval = xml.substr(start_pos, end_pos - start_pos);
-
-    return retval;
+    if (start_pos == string::npos || end_pos == string::npos) {
+        return "";
+    } else {
+        start_pos += start_tag.length();
+        return xml.substr(start_pos, end_pos - start_pos);
+    }
 }
