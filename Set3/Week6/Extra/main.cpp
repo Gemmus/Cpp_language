@@ -25,13 +25,83 @@ use ordinary string (maybe an array of strings) to store words.
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+
+using namespace std;
 
 #ifdef _DEBUG // Active only in Debug Configuration
 #define _CRTDBG_MAP_ALLOC // Visual Studio Mem Leak detector activated
 #include <crtdbg.h>
 #endif
 
-// your program goes here
+class WordPool {
+public:
+	WordPool(const string string0 = "") {
+		word = string0;
+	}
+
+	WordPool(const WordPool& string0) {
+		word = string0;
+	}
+
+	~WordPool() {
+		//cout << "('" << word << "' to be destroyed -->";
+		//cout << " done)" << endl;
+	}
+
+	WordPool operator+(WordPool& string0) {
+		WordPool aux(*this);
+
+		aux.word = aux.word + " " + string0.GetRandom();
+		word = GetRandom();
+
+		return aux;
+	}
+
+	operator const string& () const {
+		return word;
+	}
+
+	void fill (const string &letter, ifstream& input_file) {
+		string line;
+		const string tag = "[" + letter + "]";
+
+		while (getline(input_file, line)) {
+			if (line == tag) {
+				while (getline(input_file, line) && !line.empty()) {
+					words.push_back(line);
+					line_count++;
+				}
+				break;
+			}
+		}
+		word = GetRandom();
+	}
+
+	string GetRandom() {
+		string rand_string;
+		if (!words.empty()) {
+
+			unsigned int number;
+			errno_t err;
+
+			err = rand_s(&number);
+			if (err == 0) {
+				unsigned int random_num = (unsigned int) ((double)number / ((double)UINT_MAX + 1) * line_count);
+				rand_string = words[random_num];
+			}
+			else {
+				cout << "rand_s function error..." << endl;
+			}
+		}
+		return rand_string;
+	}
+
+private:
+	vector<string> words;
+	int line_count = 0;
+	string word;
+};
 
 string giveStatement(string filename) {
 	WordPool g, a, s, v;
@@ -52,7 +122,6 @@ int main(void) {
 	else
 		cout << "Your program has no memory leaks, congratulations!" << endl;
 #endif
-
 
 	system("PAUSE");
 
