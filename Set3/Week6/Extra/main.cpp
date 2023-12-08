@@ -36,94 +36,94 @@ using namespace std;
 
 class WordPool {
 public:
-	WordPool(const string string0 = "") {
-		word = string0;
-	}
+    WordPool(const string string0 = "") {
+        word = string0;
+    }
 
-	WordPool(const WordPool& string0) {
-		word = string0;
-	}
+    WordPool(const WordPool& string0) {
+        word = string0;
+    }
 
-	~WordPool() {
-		//cout << "('" << word << "' to be destroyed -->";
-		//cout << " done)" << endl;
-	}
+    ~WordPool() {
+        //cout << "('" << word << "' to be destroyed -->";
+        //cout << " done)" << endl;
+    }
 
-	WordPool operator+(WordPool& string0) {
-		WordPool aux(*this);
+    WordPool operator+(WordPool& string0) {
+        WordPool aux(*this);
 
-		aux.word = aux.word + " " + string0.GetRandom();
-		word = GetRandom();
+        aux.word = aux.word + " " + string0.GetRandom();
+        word = GetRandom();
 
-		return aux;
-	}
+        return aux;
+    }
 
-	operator const string& () const {
-		return word;
-	}
+    operator const string& () const {
+        return word;
+    }
 
-	void fill (const string &letter, ifstream& input_file) {
-		string line;
-		const string tag = "[" + letter + "]";
+    void fill (const string &letter, ifstream& input_file) {
+        string line;
+        const string tag = "[" + letter + "]";
 
-		while (getline(input_file, line)) {
-			if (line == tag) {
-				while (getline(input_file, line) && !line.empty()) {
-					words.push_back(line);
-					line_count++;
-				}
-				break;
-			}
-		}
-		word = GetRandom();
-	}
+        while (getline(input_file, line)) {
+            if (line == tag) {
+                while (getline(input_file, line) && !line.empty()) {
+                    words.push_back(line);
+                    line_count++;
+                }
+                break;
+            }
+        }
+        word = GetRandom();
+    }
 
-	string GetRandom() {
-		string rand_string;
-		if (!words.empty()) {
+    string GetRandom() {
+        string rand_string;
+        if (!words.empty()) {
 
-			unsigned int number;
-			errno_t err;
+            unsigned int number;
+            errno_t err;
 
-			err = rand_s(&number);
-			if (err == 0) {
-				unsigned int random_num = (unsigned int) ((double)number / ((double)UINT_MAX + 1) * line_count);
-				rand_string = words[random_num];
-			}
-			else {
-				cout << "rand_s function error..." << endl;
-			}
-		}
-		return rand_string;
-	}
+            err = rand_s(&number);
+            if (err == 0) {
+                unsigned int random_num = (unsigned int) ((double)number / ((double)UINT_MAX + 1) * line_count);
+                rand_string = words[random_num];
+            }
+            else {
+                cout << "rand_s function error..." << endl;
+            }
+        }
+        return rand_string;
+    }
 
 private:
-	vector<string> words;
-	int line_count = 0;
-	string word;
+    vector<string> words;
+    int line_count = 0;
+    string word;
 };
 
 string giveStatement(string filename) {
-	WordPool g, a, s, v;
-	ifstream inputFile(filename);
+    WordPool g, a, s, v;
+    ifstream inputFile(filename);
 
-	g.fill("G", inputFile); a.fill("A", inputFile); s.fill("S", inputFile); v.fill("V", inputFile);
+    g.fill("G", inputFile); a.fill("A", inputFile); s.fill("S", inputFile); v.fill("V", inputFile);
 
-	return g + a + s + v + g + a + s;
+    return g + a + s + v + g + a + s;
 }
 
 int main(void) {
 
-	cout << giveStatement("oracle.dat") << endl << endl;
+    cout << giveStatement("oracle.dat") << endl << endl;
 
 #ifdef _DEBUG
-	if (_CrtDumpMemoryLeaks())
+    if (_CrtDumpMemoryLeaks())
 		cout << "WARNING: There was a memory leak in your program" << endl;
 	else
 		cout << "Your program has no memory leaks, congratulations!" << endl;
 #endif
 
-	system("PAUSE");
+    system("PAUSE");
 
-	return 0;
+    return 0;
 }
