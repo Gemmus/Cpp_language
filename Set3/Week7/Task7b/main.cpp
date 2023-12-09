@@ -44,10 +44,6 @@ public:
         return old;
     }
 
-    bool operator<(int value) const {
-        return getCount() < value;
-    }
-
 private:
     int upper_limit;
 };
