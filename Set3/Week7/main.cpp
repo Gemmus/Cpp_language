@@ -20,10 +20,7 @@ class LimitedCounter {
     }
 
 public:
-    LimitedCounter(int n0=0, int n1=100) {
-        counter = n0;
-        upper_limit = n1;
-    }
+    LimitedCounter(int n0=0, int n1=100):counter(n0), upper_limit(n1) {}
 
     LimitedCounter operator++(int) {
         LimitedCounter old = *this;
@@ -82,9 +79,7 @@ int main() {
 
 class LimitedCounter: public Counter {
 public:
-    explicit LimitedCounter(int n0=0, int n1=100):Counter(n0) {
-        upper_limit = n1;
-    }
+    explicit LimitedCounter(int n0=0, int n1=100):Counter(n0), upper_limit(n1) {}
 
     LimitedCounter &operator++() {
         if (getCount() < upper_limit) {
