@@ -34,8 +34,7 @@ class LimitedCounter {
     }
 
 public:
-    LimitedCounter(int n0=0, int n1=100) {
-        counter = n0;
+    LimitedCounter(int n0=0, int n1=100):counter(n0) {
         upper_limit = n1;
     }
 
