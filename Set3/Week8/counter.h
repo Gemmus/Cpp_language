@@ -7,6 +7,7 @@ class Counter {
     friend ostream &operator<<(ostream &out, const Counter &c);
     public:
         Counter(int n0 = 0);
+        virtual ~Counter();
         virtual Counter &operator++();
         Counter operator++(int);
         bool operator<(const Counter &c2) const;
