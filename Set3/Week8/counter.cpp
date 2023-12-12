@@ -6,6 +6,7 @@
 Counter:: Counter(int n0) {
      count = n0;
 }
+Counter::~Counter() {}
 Counter& Counter::operator++() {
    count++;
    return *this;
