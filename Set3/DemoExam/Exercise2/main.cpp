@@ -47,7 +47,7 @@ class Person {
     }
 
 public:
-    Person (const string fn="",const char *ln="") {
+    Person (const string &fn="",const char *ln="") {
         first_name = fn;
         last_name = new char[strlen(ln) + 1];
         strcpy(last_name, ln);
