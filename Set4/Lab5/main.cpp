@@ -45,8 +45,6 @@ then generate another three sets of lotto numbers.
 #include <vector>
 #include <iterator>
 #include <algorithm>
-#include <random>
-#include <functional>
 
 #define ALL_MIN 1
 #define LOTTO_MAX 40
