@@ -43,7 +43,7 @@ private:
 
 class Apartment {
 public:
-    explicit Apartment(shared_ptr<House> housePtr = nullptr, int number= 0, int size = 0, int rent = 0) : housePtr(std::move(housePtr)), apartment_number(number), apartment_size(size), apartment_rent(rent) {}
+    explicit Apartment(shared_ptr<House> housePtr = nullptr, int number = 0, int size = 0, int rent = 0) : housePtr(std::move(housePtr)), apartment_number(number), apartment_size(size), apartment_rent(rent) {}
 
     bool operator<(const Apartment& right) const {
         return apartment_rent < right.apartment_rent;
